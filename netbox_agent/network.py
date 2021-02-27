@@ -316,7 +316,7 @@ class Network(object):
             netbox_ip = nb.ipam.ip_addresses.create(
                 address=ip,
                 interface=interface.id,
-                status=1,
+                status="active",
             )
         else:
             netbox_ip = netbox_ips[0]
@@ -338,7 +338,7 @@ class Network(object):
                     netbox_ip = nb.ipam.ip_addresses.create(
                         address=ip,
                         interface=interface.id,
-                        status=1,
+                        status="active",
                         role=self.ipam_choices['ip-address:role']['Anycast'],
                         tenant=self.tenant.id if self.tenant else None,
                     )
